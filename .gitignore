@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+**/dist/
+build/
+.netlify/
+**/.netlify/
+
+# Runtime caches & browser sessions
+.wwebjs_cache/
+**/.wwebjs_cache/
+auth_info*/
+**/auth_info*/
+*.session
+
+# Environment & local settings
+.env
+.env.local
+.env.*.local
+!.env.example
+.vscode/
+.idea/
+
+# Logs & OS artifacts
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Zip archives
+*.zip
+*.tar.gz
+*.7z

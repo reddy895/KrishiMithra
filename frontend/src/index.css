@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Modern Crisp Climate-Tech Palette (Light Mode) */
+    --background: 210 20% 98%; /* Clean crisp slate #F8FAFC */
+    --foreground: 222 47% 11%; /* Deep navy charcoal #0F172A */
+
+    --card: 0 0% 100%; /* Crisp Pure White */
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary: Vivid Emerald Green */
+    --primary: 158 80% 32%; /* #0D824E */
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 158 60% 94%;
+
+    /* Secondary: Clean Slate Accent */
+    --secondary: 210 40% 94%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 158 80% 94%;
+    --accent-foreground: 158 80% 25%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 158 80% 32%;
+    --warning: 38 92% 50%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 158 80% 32%;
+
+    --radius: 0.875rem;
+
+    --gradient-hero: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(160 50% 96%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(158 80% 32%), hsl(165 80% 38%));
+    --shadow-soft: 0 10px 30px -10px hsl(222 47% 11% / 0.06);
+    --shadow-card: 0 2px 12px -2px hsl(222 47% 11% / 0.05);
+
+    --sidebar-background: 210 20% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 158 80% 32%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 158 80% 32%;
+  }
+
+  .dark {
+    /* Ultra-Clean Deep Tech (Dark Mode) */
+    --background: 222 47% 7%; /* Deep Space Navy #090D16 */
+    --foreground: 210 40% 98%; /* Pure Crisp White #F8FAFC */
+
+    --card: 222 47% 10%; /* #0F172A */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary: Luminous Emerald */
+    --primary: 158 75% 45%; /* #1DBF73 */
+    --primary-foreground: 222 47% 7%;
+    --primary-soft: 158 40% 15%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 158 75% 20%;
+    --accent-foreground: 158 75% 65%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 158 75% 45%;
+    --warning: 38 92% 55%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 158 75% 45%;
+
+    --gradient-hero: linear-gradient(180deg, hsl(222 47% 7%) 0%, hsl(222 47% 11%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(158 75% 45%), hsl(165 75% 50%));
+    --shadow-soft: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
+    --shadow-card: 0 4px 20px -2px hsl(0 0% 0% / 0.4);
+
+    --sidebar-background: 222 47% 7%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 158 75% 45%;
+    --sidebar-primary-foreground: 222 47% 7%;
+    --sidebar-accent: 217 33% 14%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 18%;
+    --sidebar-ring: 158 75% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Glassmorphism & Modern UI utilities */
+.glass-card {
+  background: hsl(var(--card) / 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid hsl(var(--border) / 0.6);
+  box-shadow: var(--shadow-card);
+}
+
+.glass-btn {
+  background: hsl(var(--card) / 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--border) / 0.7);
+  color: hsl(var(--foreground));
+}
+
+.glass-btn:hover {
+  background: hsl(var(--muted));
+  border-color: hsl(var(--primary) / 0.4);
+}
+
+/* Prominent Chosen / Active Card & Button Highlighting */
+.glass-btn-active {
+  background: hsl(var(--primary)) !important;
+  border-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+  box-shadow: 0 8px 24px -4px hsl(var(--primary) / 0.45) !important;
+  font-weight: 800 !important;
+  outline: 2px solid hsl(var(--primary)) !important;
+  outline-offset: 2px !important;
+  transform: scale(1.02);
+}
+
+.card-selected {
+  background: hsl(var(--primary) / 0.12) !important;
+  border: 2.5px solid hsl(var(--primary)) !important;
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.25), 0 8px 20px -4px hsl(var(--primary) / 0.2) !important;
+  transform: scale(1.02);
+}

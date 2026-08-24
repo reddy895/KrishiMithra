@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: cropcare-backend
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+      - AI_MODEL=${AI_MODEL:-google/gemini-2.5-flash}
+      - FORCE_NEW_QR_ON_START=${FORCE_NEW_QR_ON_START:-false}
+      - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+    volumes:
+      - backend-auth:/app/auth_info
+      - backend-cache:/app/.wwebjs_cache
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: cropcare-frontend
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+volumes:
+  backend-auth:
+  backend-cache:

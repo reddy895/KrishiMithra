@@ -1,0 +1,31 @@
+{
+  "name": "cropcare-whatsapp-bot",
+  "version": "1.0.0",
+  "description": "WhatsApp chatbot for CropCare - AI plant disease diagnosis for farmers",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "puppeteer": "^24.6.0",
+    "puppeteer-core": "^24.6.0",
+    "qrcode": "^1.5.4",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.26.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.13.0",
+    "@types/qrcode": "^1.5.6",
+    "@types/qrcode-terminal": "^0.12.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

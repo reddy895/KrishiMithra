@@ -1,0 +1,12 @@
+node_modules
+dist
+auth_info
+auth_info_fresh_*
+.wwebjs_cache
+qr-code.png
+.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.git
+.gitignore
